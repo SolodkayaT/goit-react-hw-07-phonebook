@@ -6,12 +6,12 @@ import contactsOperations from "../../redux/contacts/contactsOperations";
 import styles from "./ContactListItem.module.css";
 import ContactListButton from "../ContactListButton/ContactListButton";
 
-function ContactListItem({ name, phone, keys, onRemove }) {
+function ContactListItem({ name, number, keys, onRemove }) {
   return (
     <>
       <li className={styles.contactItem} key={keys}>
         <p>
-          {name} : {phone}
+          {name} : {number}
         </p>
       </li>
       <ContactListButton onRemoveContact={onRemove} />
