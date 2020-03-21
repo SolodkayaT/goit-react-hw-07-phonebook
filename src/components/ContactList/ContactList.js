@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { uuid } from "uuidv4";
+import Loader from "react-loader-spinner";
 import PropTypes from "prop-types";
 import contactsSelectors from "../../redux/contacts/contactsSelectors";
 import ContactListItem from "../ContactListItem/ContactListItem";
@@ -8,10 +8,18 @@ import ContactListItem from "../ContactListItem/ContactListItem";
 function ContactList({ contacts, isLoadingContacts }) {
   return (
     <>
-      {isLoadingContacts && <p>Lading contacts...</p>}
+      {isLoadingContacts && (
+        <Loader
+          type="Puff"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          timeout={3000} //3 secs
+        />
+      )}
       <ul>
         {contacts.map(({ id }) => (
-          <ContactListItem key={uuid()} id={id} />
+          <ContactListItem key={id} id={id} />
         ))}
       </ul>
     </>
