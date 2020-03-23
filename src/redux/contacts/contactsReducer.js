@@ -5,7 +5,7 @@ import contactsAction from "./contactsActions";
 const addContact = (state, action) => [...state, action.payload];
 const removeContact = (state, action) =>
   state.filter(contact => contact.id !== action.payload);
-const items = createReducer([], {
+const phonebook = createReducer([], {
   [contactsAction.fetchContactSuccess]: (state, action) => action.payload,
   [contactsAction.addContactSuccess]: addContact,
   [contactsAction.removeContactSuccess]: removeContact
@@ -30,7 +30,7 @@ const loading = createReducer(false, {
 });
 
 export default combineReducers({
-  items,
+  phonebook,
   filter,
   loading
 });
