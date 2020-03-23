@@ -23,5 +23,6 @@ export default {
   getVisibleContacts,
   getFilter,
   getContactById,
-  getError
+  getError,
+  getContacts
 };

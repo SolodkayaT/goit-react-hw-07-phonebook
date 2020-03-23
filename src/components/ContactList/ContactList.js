@@ -4,12 +4,12 @@ import Loader from "react-loader-spinner";
 import PropTypes from "prop-types";
 import contactsSelectors from "../../redux/contacts/contactsSelectors";
 import ContactListItem from "../ContactListItem/ContactListItem";
-import Error from "../Error/Error";
+import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 
 function ContactList({ contacts, isLoadingContacts, isError }) {
   return (
     <>
-      {isError && <Error />}
+      {isError && <ErrorBoundary />}
       {isLoadingContacts && (
         <Loader
           type="Puff"

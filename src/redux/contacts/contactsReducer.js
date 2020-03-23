@@ -2,7 +2,14 @@ import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 import contactsAction from "./contactsActions";
 
-const addContact = (state, action) => [...state, action.payload];
+const addContact = (state, action) => {
+  const isExist = state.some(contact => contact.name === action.payload.name);
+  if (isExist) {
+    alert(`${action.payload.name} is allready in contacts!`);
+    return;
+  }
+  return [...state, action.payload];
+};
 
 const removeContact = (state, action) =>
   state.filter(contact => contact.id !== action.payload);
@@ -35,10 +42,6 @@ const error = createReducer("", {
   [contactsAction.fetchContactRequest]: () => "",
   [contactsAction.addContactRequest]: () => "",
   [contactsAction.removeContactRequest]: () => "",
-
-  [contactsAction.addContactSuccess]: () => "",
-  [contactsAction.fetchContactSuccess]: () => "",
-  [contactsAction.removeContactSuccess]: () => "",
 
   [contactsAction.addContactError]: (state, action) => action.payload,
   [contactsAction.fetchContactError]: (state, action) => action.payload,

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Error.module.css";
+import styles from "./ErrorBoundary.module.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import contactsSelectors from "../../redux/contacts/contactsSelectors";

@@ -6,6 +6,7 @@ import Filter from "../Filter/Filter";
 import Layout from "../Layout/Layout";
 import styles from "./App.module.css";
 import contactsOperations from "../../redux/contacts/contactsOperations";
+import contactsSelectors from "../../redux/contacts/contactsSelectors";
 
 class App extends Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class App extends Component {
           <h1 className={styles.title}>Phonebook</h1>
           <ContactForm />
           <h2 className={styles.title}>Contacts</h2>
-          <Filter />
+          {this.props.contacts.length > 1 && <Filter />}
           <ContactList />
         </section>
       </Layout>
@@ -29,4 +30,7 @@ const mapDispatchToProps = {
   onFetchContacts: contactsOperations.fetchContacts
 };
 
-export default connect(null, mapDispatchToProps)(App);
+const mapStateToProps = state => {
+  return { contacts: contactsSelectors.getContacts(state) };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(App);
