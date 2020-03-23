@@ -4,17 +4,19 @@ import Loader from "react-loader-spinner";
 import PropTypes from "prop-types";
 import contactsSelectors from "../../redux/contacts/contactsSelectors";
 import ContactListItem from "../ContactListItem/ContactListItem";
+import Error from "../Error/Error";
 
-function ContactList({ contacts, isLoadingContacts }) {
+function ContactList({ contacts, isLoadingContacts, isError }) {
   return (
     <>
+      {isError && <Error message="Something went wrong..." />}
       {isLoadingContacts && (
         <Loader
           type="Puff"
           color="#00BFFF"
           height={100}
           width={100}
-          timeout={3000} //3 secs
+          timeout={3000}
         />
       )}
       <ul>
@@ -37,7 +39,8 @@ ContactList.propTypes = {
 const mapStateToProps = state => {
   return {
     contacts: contactsSelectors.getVisibleContacts(state),
-    isLoadingContacts: contactsSelectors.getLoading(state)
+    isLoadingContacts: contactsSelectors.getLoading(state),
+    isError: contactsSelectors.getError(state)
   };
 };
 

@@ -3,8 +3,10 @@ import { createReducer } from "@reduxjs/toolkit";
 import contactsAction from "./contactsActions";
 
 const addContact = (state, action) => [...state, action.payload];
+
 const removeContact = (state, action) =>
   state.filter(contact => contact.id !== action.payload);
+
 const phonebook = createReducer([], {
   [contactsAction.fetchContactSuccess]: (state, action) => action.payload,
   [contactsAction.addContactSuccess]: addContact,
@@ -29,8 +31,15 @@ const loading = createReducer(false, {
   [contactsAction.removeContactError]: () => false
 });
 
+const error = createReducer(false, {
+  [contactsAction.addContactError]: () => true,
+  [contactsAction.fetchContactError]: () => true,
+  [contactsAction.removeContactError]: () => true
+});
+
 export default combineReducers({
   phonebook,
   filter,
-  loading
+  loading,
+  error
 });

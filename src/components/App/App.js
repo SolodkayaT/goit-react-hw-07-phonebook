@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
 import ContactList from "../ContactList/ContactList";
 import ContactForm from "../ContactForm/ContactForm";
 import Filter from "../Filter/Filter";
@@ -29,4 +28,5 @@ class App extends Component {
 const mapDispatchToProps = {
   onFetchContacts: contactsOperations.fetchContacts
 };
+
 export default connect(null, mapDispatchToProps)(App);
