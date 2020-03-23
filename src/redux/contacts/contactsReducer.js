@@ -31,10 +31,18 @@ const loading = createReducer(false, {
   [contactsAction.removeContactError]: () => false
 });
 
-const error = createReducer(false, {
-  [contactsAction.addContactError]: () => true,
-  [contactsAction.fetchContactError]: () => true,
-  [contactsAction.removeContactError]: () => true
+const error = createReducer("", {
+  [contactsAction.fetchContactRequest]: () => "",
+  [contactsAction.addContactRequest]: () => "",
+  [contactsAction.removeContactRequest]: () => "",
+
+  [contactsAction.addContactSuccess]: () => "",
+  [contactsAction.fetchContactSuccess]: () => "",
+  [contactsAction.removeContactSuccess]: () => "",
+
+  [contactsAction.addContactError]: (state, action) => action.payload,
+  [contactsAction.fetchContactError]: (state, action) => action.payload,
+  [contactsAction.removeContactError]: (state, action) => action.payload
 });
 
 export default combineReducers({

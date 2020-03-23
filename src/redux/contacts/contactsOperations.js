@@ -7,9 +7,8 @@ axios.defaults.headers.post["Content-Type"] = "application/json";
 
 const addContact = (name, number) => dispatch => {
   dispatch(contactsActions.addContactRequest());
-  const contact = { name, number };
   axios
-    .post("/contacts", { name, number }, { body: JSON.stringify(contact) })
+    .post("/contacts", { name, number })
     .then(({ data }) => {
       dispatch(contactsActions.addContactSuccess(data));
     })

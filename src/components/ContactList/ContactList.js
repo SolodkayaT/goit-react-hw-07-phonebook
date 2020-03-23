@@ -9,7 +9,7 @@ import Error from "../Error/Error";
 function ContactList({ contacts, isLoadingContacts, isError }) {
   return (
     <>
-      {isError && <Error message="Something went wrong..." />}
+      {isError && <Error />}
       {isLoadingContacts && (
         <Loader
           type="Puff"
