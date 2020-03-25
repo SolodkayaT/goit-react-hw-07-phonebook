@@ -8,9 +8,7 @@ export default function ContactListButton({ onRemoveContact }) {
       className={styles.contactButton}
       type="button"
       onClick={onRemoveContact}
-    >
-      Delete
-    </button>
+    ></button>
   );
 }
 

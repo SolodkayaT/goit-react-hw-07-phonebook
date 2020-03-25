@@ -10,8 +10,11 @@ function ContactListItem({ name, number, keys, onRemove }) {
   return (
     <>
       <li className={styles.contactItem} key={keys}>
-        {name} : {number}
-        <ContactListButton onRemoveContact={onRemove} />
+        {name}
+        <div>
+          <span className={styles.phone}> {number}</span>
+          <ContactListButton onRemoveContact={onRemove} />
+        </div>
       </li>
     </>
   );

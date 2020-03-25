@@ -6,7 +6,7 @@ const addContact = (state, action) => {
   const isExist = state.some(contact => contact.name === action.payload.name);
   if (isExist) {
     alert(`${action.payload.name} is allready in contacts!`);
-    return;
+    return [...state];
   }
   return [...state, action.payload];
 };

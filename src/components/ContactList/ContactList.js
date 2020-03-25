@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import contactsSelectors from "../../redux/contacts/contactsSelectors";
 import ContactListItem from "../ContactListItem/ContactListItem";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
+import styles from "./ContactList.module.css";
 
 function ContactList({ contacts, isLoadingContacts, isError }) {
   return (
@@ -19,7 +20,7 @@ function ContactList({ contacts, isLoadingContacts, isError }) {
           timeout={3000}
         />
       )}
-      <ul>
+      <ul className={styles.contactList}>
         {contacts.map(({ id }) => (
           <ContactListItem key={id} id={id} />
         ))}

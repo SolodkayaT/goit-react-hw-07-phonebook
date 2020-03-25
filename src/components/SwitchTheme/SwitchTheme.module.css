@@ -1,15 +1,14 @@
-header .themeSelector {
-  text-align: right;
+.themeSwitcher {
+  margin-left: 20px;
+  display: flex;
+  align-content: center;
 }
-
+.label {
+  margin-right: 10px;
+  font-size: 20px;
+}
 .themeSelector {
   cursor: pointer;
-}
-
-.themeSelector .label {
-  top: -10px;
-  position: relative;
-  padding: 0px 10px;
 }
 
 .switch {

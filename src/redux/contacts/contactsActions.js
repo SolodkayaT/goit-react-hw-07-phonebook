@@ -12,7 +12,7 @@ const removeContactRequest = createAction("contacts/removeRequest");
 const removeContactSuccess = createAction("contacts/removeuccess");
 const removeContactError = createAction("contacts/removeError");
 
-const changeFilter = createAction("task/changeFilter");
+const changeFilter = createAction("contacts/changeFilter");
 
 export default {
   removeContactRequest,

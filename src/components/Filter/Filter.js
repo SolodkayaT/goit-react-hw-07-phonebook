@@ -7,13 +7,16 @@ import styles from "./Filter.module.css";
 
 function Filter({ value, onChangeFilter }) {
   return (
-    <div>
-      <input
-        className={styles.filter}
-        type="text"
-        value={value}
-        onChange={e => onChangeFilter(e.target.value)}
-      ></input>
+    <div className={styles.filterContainer}>
+      <label className={styles.filterName}>
+        Find contacts by name
+        <input
+          className={styles.filter}
+          type="text"
+          value={value}
+          onChange={e => onChangeFilter(e.target.value)}
+        ></input>{" "}
+      </label>
     </div>
   );
 }

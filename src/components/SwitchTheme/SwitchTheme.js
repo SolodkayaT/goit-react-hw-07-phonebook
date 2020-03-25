@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const SwitchTheme = ({ onToggleTheme }) => {
   return (
-    <>
+    <div className={styles.themeSwitcher}>
       <span className={styles.label}>Theme</span>
       <label className={styles.switch}>
         <input
@@ -14,7 +14,7 @@ const SwitchTheme = ({ onToggleTheme }) => {
         />
         <span className={styles.slider}></span>
       </label>
-    </>
+    </div>
   );
 };
 export default SwitchTheme;
